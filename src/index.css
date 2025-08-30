@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer components{
+  .loginDiv{
+    background-image: linear-gradient(to top, #3ab5b0 0%, #3d99be 31%, #747a31 100%);
+    
+    @apply flex justify-center items-center min-h-screen;
+  }
+  .login-input{
+    height: 34px;
+    border-bottom:3px solid #ff9f50;
+    background-color: inherit;
+    padding: .2rem;
+    outline: none;
+   @apply focus:caret-slate-800
+  }
+ 
+}
+
