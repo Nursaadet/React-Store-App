@@ -16,7 +16,7 @@ const Products = () => {
         category={category}
         setCategory={setCategory}
       />
-      <h3 className="text-orange-400 font-extrabold text-2xl text-center tracking-tighter ">
+      <h3 className="text-orange-400 font-extrabold text-2xl text-center tracking-tighter mt-5">
         PRODUCTS
       </h3>
       {loading ? (

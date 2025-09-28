@@ -71,7 +71,7 @@ const Navbar = () => {
             </ul>
             <NavLink
               to="/"
-              className="bg-gray-100 text-orange-600 rounded-xl px-2 py-1 font-montepasifico"
+              className="bg-gray-100 text-orange-600 rounded-xl px-2 py-1 m-5 font-montepasifico "
               onClick={() => logout()}
             >
               LogOut

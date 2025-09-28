@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     
-        <div className="bg-gray-300 pt-10 min-h-[10vh]">
+        <div className="bg-gray-300 pt-10 min-h-[10vh] ">
           {" "}
-              <div className="flex items-center justify-evenly text-orange-400">
+              <div className="flex items-center justify-evenly text-orange-400 pb-4">
           <Link to="/comingsoon">
             <svg
               className="w-6 h-6 hover:text-gray-500 duration-150"

@@ -72,7 +72,7 @@ const Login = () => {
                 Forget Your Password?
               </small>
             </div>
-            <button className=" bg-cyan-700 text-orange-300  font-montepasifico text-label hover:bg-inherit hover:border-2 hover:border-orange-400  hover:text-slate-700 duration-300  rounded-lg my-2">
+            <button className=" bg-cyan-700 text-orange-300  font-montepasifico text-label hover:bg-inherit hover:border-2 hover:border-orange-400  hover:text-slate-700 duration-300  rounded-lg my-2 py-2">
               LOG IN
             </button>
           </form>
