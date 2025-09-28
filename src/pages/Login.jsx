@@ -13,9 +13,9 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log({ email, pass });
-    if (email.toUpperCase() === "Saadet" && pass === "12345") {
-      login({ email, pass });
-    } else {
+    if (email.toLowerCase() === "saadet" && pass === "12345") {
+  login({ email, pass });
+} else {
       alert("please enter corretly");
     }
   };
