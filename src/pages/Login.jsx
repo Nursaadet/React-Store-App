@@ -35,7 +35,7 @@ const Login = () => {
           <form className="flex flex-col" onSubmit={handleSubmit}>
             <div className="flex flex-col text-left gap-2">
               <label
-                className=" font-montepasifico text-label hover:after:content-['usernumber'] hover:after:text-orange-400 hover:after:font-sans hover:after:text-[12px] hover:after:underline hover:after:ms-2 mb-[-.5rem]"
+                className=" font-montepasifico text-label hover:after:content-['saadet'] hover:after:text-orange-400 hover:after:font-sans hover:after:text-[12px] hover:after:underline hover:after:ms-2 mb-[-.5rem]"
                 htmlFor="name"
               >
                 <FaUserGraduate className="inline me-2" />
