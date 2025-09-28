@@ -10,7 +10,7 @@ const PrivateRouter = () => {
   <>
       <Navbar />
        <Outlet />
-       <Footer/>
+       <Footer />
        </> 
        ):( <Navigate to="/dashboard" />
 

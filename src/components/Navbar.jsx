@@ -1,41 +1,47 @@
-import React, { useContext, useState } from 'react'
-import { Link, NavLink } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { FcHome } from "react-icons/fc";
 import { FaSignOutAlt } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { MdClose } from "react-icons/md";
-import { AuthContext } from '../context/AuthProvider';
+import { AuthContext } from "../context/AuthProvider";
 
 const navigation = [
   {
     title: "Home",
-    path: "/",
+    path: "/dashboard",
   },
   {
     title: "About",
-    path: "/about",
+    path: "/dashboard/about",
   },
   {
     title: "Products",
-    path: "/products",
+    path: "/dashboard/products",
   },
   {
     title: "Contact",
-    path: "/contact",
+    path: "/dashboard/contact",
   },
 ];
 
 const Navbar = () => {
   const [show, setShow] = useState(false);
-  const {logout}=useContext(AuthContext)
+  const { logout } = useContext(AuthContext);
+  const location = useLocation();
   return (
-    <nav className="h-auto py-4  bg-gray-300 py-2">
+    <nav className="min-h-[10vh] py-4  bg-gray-300 py-2">
       <div>
         <div className="md:hidden flex justify-between p-5">
           <Link to="https://clarusway.com" target="true">
             <FcHome />
           </Link>
-           <button onClick={()=>setShow(!show)} className='menu-btn text-gray-900 hover:text-gray-500 text-label duration-150' > {show ? <MdClose /> : <GiHamburgerMenu />}
+          <button
+            onClick={() => setShow(!show)}
+            className="menu-btn text-gray-900 hover:text-gray-500 text-label duration-150"
+          >
+            {" "}
+            {show ? <MdClose /> : <GiHamburgerMenu />}
           </button>
         </div>
         <div
@@ -49,17 +55,19 @@ const Navbar = () => {
           >
             <ul className="md:flex gap-5 justify-start w-[90vw]  m-5 ">
               {navigation.map((item) => (
-                <li key={item.title} className="hover:font-montepasifico hover:text-orange-600 ps-1 hover:cursor-pointer pe-1 transition-all duration-300 "
+                <li
+                  key={item.title}
+                  className="hover:font-montepasifico hover:text-orange-600 ps-1 hover:cursor-pointer pe-1 transition-all duration-300 "
                 >
-                  <NavLink to={item.path} element={item.title} />
-                  {item.title}
+                  <NavLink to={item.path} element={item.title} >{item.title}</NavLink>
                 </li>
               ))}
             </ul>
             <NavLink
               to="/"
-              className="bg-gray-100 text-orange-600 rounded-xl px-2 py-1 font-montepasifico" onClick={()=>logout()}> 
-            
+              className="bg-gray-100 text-orange-600 rounded-xl px-2 py-1 font-montepasifico"
+              onClick={() => logout()}
+            >
               LogOut
               <FaSignOutAlt className="inline-block ms-3" />
             </NavLink>

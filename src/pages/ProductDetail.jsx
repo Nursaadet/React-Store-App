@@ -19,7 +19,7 @@ const ProductDetail = () => {
   const{ thumbnail,title,description,category,price,images}=state
   return (
     <div className="mx-auto max-w-2xl px-4 pt-8 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-      <div className="mt-6 w-full ">
+      <div className="mt-6 w-90 m-auto ">
         <article className="mx-auto w-full block lg:flex mt-4 h-full 2xl:h-[70vh]  shadow-lg border rounded-md duration-300 hover:shadow-sm">
           <div className="grid grid-rows-4 gap-2 h-full w-full lg:w-7/12 p-4">
             <div className="w-full row-span-3">
@@ -50,7 +50,7 @@ const ProductDetail = () => {
             <div className="flex  mt-2 pt-3 ml-4 mr-2">
               <div className="">
                 <span className="block text-gray-900">
-                  Category :{category}{" "}
+                  Category :{category}
                 </span>
                 <span className="block  text-sm">Price : {price} $</span>
               </div>
@@ -60,13 +60,13 @@ const ProductDetail = () => {
                 onClick={() => navigate(-1)}
                 className="border rounded-lg bg-labelColor text-white p-2"
               >
-                Geri
+                Go Back
               </button>
               <button
                 onClick={() => navigate("/dashboard")}
                 className="border rounded-lg bg-main text-white p-2"
               >
-                Ana Sayfaya Dön
+                Go Home
               </button>
             </div>
           </div>
