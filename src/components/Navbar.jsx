@@ -57,9 +57,15 @@ const Navbar = () => {
               {navigation.map((item) => (
                 <li
                   key={item.title}
-                  className="hover:font-montepasifico hover:text-orange-600 ps-1 hover:cursor-pointer pe-1 transition-all duration-300 "
+                  className={`hover:font-montepasifico hover:text-orange-400 ps-1 hover:cursor-pointer pe-1 transition-all duration-300 ${
+                    location.pathname === item.path
+                      ? "font-montepasifico text-orange-400"
+                      : ""
+                  } `}
                 >
-                  <NavLink to={item.path} element={item.title} >{item.title}</NavLink>
+                  <NavLink to={item.path} element={item.title}>
+                    {item.title}
+                  </NavLink>
                 </li>
               ))}
             </ul>
