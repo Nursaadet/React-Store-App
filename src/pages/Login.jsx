@@ -1,32 +1,34 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { FaUserGraduate } from "react-icons/fa";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { Outlet, useNavigate } from "react-router-dom";
+import AuthProvider, { tryContext } from "../context/AuthProvider";
 
 const Login = () => {
-  const [email,setEmail]=useState("")
-  const [pass,setPass]=useState("")
+  const [email, setEmail] = useState("");
+  const [pass, setPass] = useState("");
+  const { user, login } = useContext(tryContext);
 
-  const navigate =useNavigate()
-  const handleSubmit=(e)=>{
-    e.preventDefault()
-    console.log({email,pass});
-    if(email && pass){
-      navigate("/home")
-    }else{
-      alert("please enter correctly")
+  const navigate = useNavigate();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log({ email, pass });
+    if (email.toUpperCase() === "Saadet" && pass === "12345") {
+      login({ email, pass });
+    } else {
+      alert("please enter corretly");
     }
-  }
+  };
   return (
     <div className="loginDiv">
-      <div className="h-[450px] w-4/5 md:w-[500px] bg-violet-200 rounded-b-3xl border-t-orange-400 border-t-[1rem] p-5 flex flex-col items-center   text-center">
+      <div className="h-[450px] w-4/5 md:w-[500px] bg-slate-200 rounded-b-3xl border-t-orange-300 border-t-[1rem] p-5 flex flex-col items-center   text-center">
         <div className="mt-1">
           <h1 className="text-[22px] font-montepasifico sm:text-[32px] mb-3">
             LOG IN
           </h1>
           <h3 className=" text-[19px] ">
             Want a create websites?
-            <span className="underline font-montepasifico text-orange-400 hover:cursor-pointer">
+            <span className="underline font-bold text-orange-400 hover:cursor-pointer ml-1">
               Join 'FS-16 code fighters'
             </span>
           </h3>
@@ -39,29 +41,43 @@ const Login = () => {
                 <FaUserGraduate className="inline me-2" />
                 Username
               </label>
-              <input type="text" id="name" required className="login-input"  onChange={(e)=>setEmail(e.target.value)} />
-              <small className="text-right hover:cursor-pointer underline" onClick={()=>navigate("/username")} >
+              <input type="text" id="name" className="login-input"  onChange={(e)=>setEmail(e.target.value)} />
+              <small
+                className="text-right hover:cursor-pointer underline"
+                onClick={() => navigate("/username")}
+              >
                 Forget Your Username?
               </small>
             </div>
             <div className="flex flex-col text-left gap-2">
               <label
-                className=" font-montepasifico text-label mb-[-.5rem]"
+                
+                className=" font-montepasifico text-label mb-[-.5rem] hover:after:content-['12345'] hover:after:text-orange-400 hover:after:font-sans hover:after:text-[12px] hover:after:underline hover:after:ms-2"
                 htmlFor="password"
               >
-                {" "}
+                
                 <RiLockPasswordFill className="inline me-2" />
-                Password{" "}
+                Password
               </label>
-              <input type="password" id="password" required className="login-input" onChange={(e)=>setPass(e.target.value)} />
-              <small className="text-right hover:cursor-pointer underline" onClick={()=>navigate("/password")} >
+              <input
+                type="password"
+                id="password"
+                className="login-input"
+                onChange={(e) => setPass(e.target.value)}
+              />
+              <small
+                className="text-right hover:cursor-pointer underline"
+                onClick={() => navigate("/password")}
+              >
                 Forget Your Password?
               </small>
             </div>
-            <button className=" bg-cyan-700 text-orange-400  font-montepasifico text-label hover:bg-inherit hover:border-2 hover:border-orange-400  hover:text-slate-700 duration-300  rounded-lg mt-2">LOG IN</button>
+            <button className=" bg-cyan-700 text-orange-300  font-montepasifico text-label hover:bg-inherit hover:border-2 hover:border-orange-400  hover:text-slate-700 duration-300  rounded-lg my-2">
+              LOG IN
+            </button>
           </form>
         </div>
-        <Outlet/>
+        <Outlet />
       </div>
     </div>
   );
