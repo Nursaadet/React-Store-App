@@ -29,18 +29,13 @@ const Navbar = () => {
   const [show, setShow] = useState(false);
   const {logout}=useContext(AuthContext)
   return (
-    <nav className="h-auto pt-4 bg-slate-400 py-2">
+    <nav className="h-auto py-4  bg-gray-300 py-2">
       <div>
         <div className="md:hidden flex justify-between p-5">
           <Link to="https://clarusway.com" target="true">
             <FcHome />
           </Link>
-          <button
-            onClick={() => setShow(!show)}
-            className="menu-btn text-cyan-900 hover:text-gray-100 text-label"
-          >
-            {" "}
-            {show ? <MdClose /> : <GiHamburgerMenu />}
+           <button onClick={()=>setShow(!show)} className='menu-btn text-gray-900 hover:text-gray-500 text-label duration-150' > {show ? <MdClose /> : <GiHamburgerMenu />}
           </button>
         </div>
         <div
@@ -54,9 +49,7 @@ const Navbar = () => {
           >
             <ul className="md:flex gap-5 justify-start w-[90vw]  m-5 ">
               {navigation.map((item) => (
-                <li
-                  key={item.title}
-                  className="hover:bg-orange-300 hover:inline-block rounded-2xl ps-1 hover:cursor-pointer text-cyan-950 pe-1 "
+                <li key={item.title} className="hover:font-montepasifico hover:text-orange-600 ps-1 hover:cursor-pointer pe-1 transition-all duration-300 "
                 >
                   <NavLink to={item.path} element={item.title} />
                   {item.title}
@@ -65,7 +58,7 @@ const Navbar = () => {
             </ul>
             <NavLink
               to="/"
-              className="bg-cyan-900 text-orange-300 rounded-xl px-2 py-1 font-montepasifico" onClick={()=>logout()}> 
+              className="bg-gray-100 text-orange-600 rounded-xl px-2 py-1 font-montepasifico" onClick={()=>logout()}> 
             
               LogOut
               <FaSignOutAlt className="inline-block ms-3" />
